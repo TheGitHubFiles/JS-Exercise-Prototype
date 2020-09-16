@@ -19,7 +19,6 @@ Airplane.prototype.land = function () {
   this.isFlying = false;
 };
 
-
 /*
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
@@ -44,17 +43,16 @@ function Person(name, age) {
   this.age = age;
   this.stomach = [];
 }
-Person.prototype.eat = function(edible){
-  if(this.stomach.length < 10)
-  this.stomach.push(edible)
-}
-Person.prototype.poop = function(){
+Person.prototype.eat = function (edible) {
+  if (this.stomach.length < 10) this.stomach.push(edible);
+};
+Person.prototype.poop = function () {
   this.stomach = [];
-}
-Person.prototype.toString = function(){
+};
+Person.prototype.toString = function () {
   return `${this.name}, ${this.age}`;
-}
-const newPerson = new Person('Andrew', 31)
+};
+const newPerson = new Person("Andrew", 31);
 
 /*
   TASK 2
@@ -76,9 +74,9 @@ function Car(model, milesPerGallon) {
   this.tank = 0;
   this.odometer = 0;
 }
-Car.prototype.fill = function(gallons){
-return this.tank += gallons;
-}
+Car.prototype.fill = function (gallons) {
+  return (this.tank += gallons);
+};
 /*
   TASK 3
     - Write a Baby constructor subclassing Person.
@@ -86,22 +84,20 @@ return this.tank += gallons;
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby(name,age,favoriteToy) {
-  Person.call(name,age);
-  this.name = name;
-  this.age = age;
-  this.stomach = []
-  this.favoriteToy = favoriteToy;
-}
 Baby.prototype = Object.create(Person.prototype);
 
-Baby.prototype.play = function(){
-  return`Playing with ${this.favoriteToy}`;
-};
-const lilbaby = new Baby('Andy',3,'bat');
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+}
 
-lilbaby.play()
-lilbaby.eat('food')
+Baby.prototype.play = function () {
+  return `Playing with ${this.favoriteToy}`;
+};
+const lilbaby = new Baby("Andy", 3, "bat");
+
+lilbaby.play();
+
 /* 
   TASK 4
 
@@ -112,14 +108,21 @@ lilbaby.eat('food')
   4. it can be defined as implicit or explicit
 */
 
-
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Baby) { module.exports.Baby = Baby }
+if (typeof exports !== "undefined") {
+  module.exports = module.exports || {};
+  if (Airplane) {
+    module.exports.Airplane = Airplane;
+  }
+  if (Person) {
+    module.exports.Person = Person;
+  }
+  if (Car) {
+    module.exports.Car = Car;
+  }
+  if (Baby) {
+    module.exports.Baby = Baby;
+  }
 }
